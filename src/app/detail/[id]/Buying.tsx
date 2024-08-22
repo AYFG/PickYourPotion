@@ -18,7 +18,7 @@ async function handlePayment(data: ProductDetail) {
     currency: "CURRENCY_KRW",
     channelKey: CHANNEL_KEY,
     payMethod: "CARD",
-    redirectUrl: `${API_SERVER}/pay`,
+    redirectUrl: `${API_SERVER}/`,
   })
     .then((response) => {
       if (response?.transactionType === "PAYMENT") {
