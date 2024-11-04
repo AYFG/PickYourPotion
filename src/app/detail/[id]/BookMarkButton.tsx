@@ -5,6 +5,7 @@ import heart from "../../../../public/images/icons/icon-like.svg";
 import heartActive from "../../../../public/images/icons/icon-like-true.svg";
 import { InfoToast } from "@/toast/InfoToast";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 interface BookMarkButtonProps {
   token: string | undefined;
   productId: string | string[];
@@ -71,6 +72,7 @@ export async function getBookmark(token: string | undefined) {
 }
 
 export default function BookMarkButton({ token, productId }: BookMarkButtonProps) {
+  const router = useRouter();
   const queryClient = useQueryClient();
   const [bookId, setBookId] = useState<number | null>(null);
   const { data: book } = useQuery({
@@ -87,10 +89,15 @@ export default function BookMarkButton({ token, productId }: BookMarkButtonProps
   }, [productId, token, book]);
 
   const handleAddBookmark = () => {
-    addBookmark(Number(productId), token);
-    setBookId(bookId);
-    InfoToast("상품을 찜했습니다.");
-    queryClient.invalidateQueries({ queryKey: ["book"] });
+    if (token) {
+      addBookmark(Number(productId), token);
+      setBookId(bookId);
+      InfoToast("상품을 찜했습니다.");
+      queryClient.invalidateQueries({ queryKey: ["book"] });
+    } else {
+      InfoToast("로그인 후 이용하실 수 있습니다.");
+      router.push("/login");
+    }
   };
   const handleDeleteBookmark = () => {
     if (bookId !== null) {
