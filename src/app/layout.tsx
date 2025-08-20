@@ -66,7 +66,7 @@ export default async function RootLayout({
               <TanstackProvider>
                 <Header />
                 <ToastContainer />
-                <ChannelTalkManager order={orderList.ok === 1 && orderList?.item[0]} />
+                {/* <ChannelTalkManager order={orderList.ok === 1 && orderList?.item[0]} /> */}
                 {children}
               </TanstackProvider>
             </SessionProvider>
