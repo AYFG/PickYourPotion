@@ -13,6 +13,7 @@ import DegreeBar from "@/components/DegreeBar";
 import BookMarkButton from "./BookMarkButton";
 
 export default function DetailClient({ token }: { token: string | undefined }) {
+  const API_SERVER = process.env.NEXT_PUBLIC_API_SERVER;
   let { id } = useParams();
   const { data } = useQuery({
     queryKey: ["detail", id],
@@ -75,7 +76,7 @@ export default function DetailClient({ token }: { token: string | undefined }) {
       {data && (
         <div className="flex items-center justify-center">
           <Image
-            src={`https://api.fesp.shop${data?.mainImages[0]?.path}`}
+            src={`${API_SERVER}${data?.mainImages[0]?.path}`}
             width={430}
             height={450}
             alt="술 이미지"

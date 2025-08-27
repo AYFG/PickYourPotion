@@ -19,10 +19,11 @@ export default function OrderDetail({
   quantity,
   className,
 }: OrderDetailProps) {
+  const API_SERVER = process.env.NEXT_PUBLIC_API_SERVER;
   return (
     <div className={`flex items-center ${className}`}>
       <Image
-        src={`https://api.fesp.shop${image.path}`}
+        src={`${API_SERVER}${image.path}`}
         alt={image.name}
         width={75}
         height={75}

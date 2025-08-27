@@ -9,10 +9,11 @@ interface WrittenReviewDetailProps {
 }
 
 export default function WrittenReviewDetail({ product, content }: WrittenReviewDetailProps) {
+  const API_SERVER = process.env.NEXT_PUBLIC_API_SERVER;
   return (
     <div className="flex gap-4 py-3">
       <Image
-        src={`https://api.fesp.shop${product.image.path}`}
+        src={`${API_SERVER}${product.image.path}`}
         alt={product.name}
         width={112}
         height={112}

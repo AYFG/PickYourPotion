@@ -28,7 +28,7 @@ export default function OrderCard({
   setQuantity,
 }: CartCardProps) {
   const [count, setCount] = useState(quantity);
-
+  const API_SERVER = process.env.NEXT_PUBLIC_API_SERVER;
   useEffect(() => {
     setCount(quantity);
   }, [quantity]);
@@ -58,7 +58,7 @@ export default function OrderCard({
   return (
     <div className="flex items-center justify-between p-[10px] border-lightGray rounded-[10px] border-[1px] mb-5">
       <Image
-        src={`https://api.fesp.shop${image}`}
+        src={`${API_SERVER}${image}`}
         alt="장바구니 아이템"
         width={76}
         height={76}

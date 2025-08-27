@@ -80,7 +80,7 @@ export default function CartCard({
 
   // 상태를 초기 수량으로 설정
   const [quantity, setQuantity] = useState(initialQuantity);
-
+  const API_SERVER = process.env.NEXT_PUBLIC_API_SERVER;
   const productTotalPrice = quantity * price;
 
   const { mutate: changeCart } = useMutation({
@@ -144,7 +144,7 @@ export default function CartCard({
       {quantity !== 0 && (
         <div className="flex items-center justify-between p-[10px] border-lightGray rounded-[10px] border-[1px] mb-5">
           <Image
-            src={`https://api.fesp.shop${image}`}
+            src={`${API_SERVER}${image}`}
             alt="장바구니 아이템"
             width={76}
             height={76}
