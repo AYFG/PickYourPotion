@@ -2,7 +2,7 @@
 
 ---
 
-배포 URL : https://www.pickyourpotion.store/
+배포 URL : https://www.pickyourpotion.shop
 
 ## 1. 프로젝트 소개
 
