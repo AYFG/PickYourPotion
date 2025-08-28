@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { twMerge } from "tailwind-merge";
-import { mPlusRounded1C } from "../fonts";
+// import { mPlusRounded1C } from "../fonts";
 
 function Splash() {
   const [showSplash, setShowSplash] = useState(true);
@@ -21,7 +21,7 @@ function Splash() {
           <div className="text-center">
             <p
               className={twMerge(
-                `opacity-0 font-bold text-8xl mb-4 ${mPlusRounded1C.className}`,
+                `opacity-0 font-bold text-8xl mb-4 font-mplus`,
                 "animate-[moving-top_0.3s_ease-in-out_0.3s_forwards]",
               )}
             >
@@ -40,7 +40,7 @@ function Splash() {
           <div className="text-center">
             <p
               className={twMerge(
-                `opacity-0 font-bold text-8xl mb-4 ${mPlusRounded1C.className}`,
+                `opacity-0 font-bold text-8xl mb-4 font-mplus`,
                 "animate-[moving-top_0.3s_ease-in-out_1s_forwards]",
               )}
             >
@@ -59,7 +59,7 @@ function Splash() {
           <div className="text-center">
             <p
               className={twMerge(
-                `opacity-0 font-bold text-8xl mb-4 ${mPlusRounded1C.className}`,
+                `opacity-0 font-bold text-8xl mb-4 font-mplus`,
                 "animate-[moving-top_0.3s_ease-in-out_1.8s_forwards]",
               )}
             >

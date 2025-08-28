@@ -1,9 +1,7 @@
 {
   "name": "PickYourPotion",
   "version": "0.1.0",
-  "overrides": {
-    "oauth4webapi": "npm:@jacobkim/oauth4webapi@^2.10.4"
-  },
+  
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -28,8 +26,8 @@
     "gitignore": "^0.7.0",
     "jsonwebtoken": "^9.0.2",
     "lucide-react": "^0.440.0",
-    "next": "14.2.5",
-    "next-auth": "^5.0.0-beta.20",
+    "next": "14.2.7",
+    "next-auth": "^5.0.0-beta.29",
     "prettier": "^3.3.3",
     "react": "^18",
     "react-dom": "^18",
@@ -40,6 +38,7 @@
     "react-toastify": "^10.0.5",
     "recharts": "^2.13.0-alpha.5",
     "shadcn-ui": "^0.9.0",
+    "sharp": "^0.34.3",
     "swiper": "^11.1.9",
     "tailwind-merge": "^2.5.2",
     "tailwind-scrollbar-hide": "^1.1.7",

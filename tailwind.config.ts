@@ -30,6 +30,7 @@ const config: Config = {
         light: ["SBAggroL", "sans-serif"],
         medium: ["SBAggroM", "sans-serif"],
         bold: ["SBAggroB", "sans-serif"],
+        mplus: ["'M PLUS Rounded 1c'", "sans-serif"],
       },
       colors: {
         primary: "#FF8F4B",
