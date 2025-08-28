@@ -10,22 +10,7 @@
 
 여러분의 인생에서 가장 완벽한 술을 찾아드리는 ‘조지주’를 소개합니다. ‘조지주’는 ‘고를 조(挑)’, ‘가질 지(持)’, 그리고 ‘술 주(酒)’의 의미를 담은 주류 이커머스 플랫폼으로, 여러분의 취향을 고려한 최적의 술을 추천해드립니다. 술BTI 테스트를 통해 나만의 맞춤 주류를 발견하고, 간편하게 구매까지 할 수 있는 새로운 주류 쇼핑 경험을 지금 ‘조지주’에서 만나보세요.
 
-## 2. 팀원 소개
-
-조지주(調持酒) 팀을 소개합니다!
-
-안녕하세요. 저희는 4명의 Front-end 개발자로 구성된 조지주(調持酒)팀입니다.
-
-<div align="center">
-
-|                                                                                          |                                                                                         |                                                                                         |                                                                                       |
-| :--------------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------: |
-| <img src="https://avatars.githubusercontent.com/u/122030243?v=4" width="120px;" alt=""/> | <img src="https://avatars.githubusercontent.com/u/76080643?v=4" width="120px;" alt=""/> | <img src="https://avatars.githubusercontent.com/u/88381607?v=4" width="120px;" alt=""/> | <img src="https://avatars.githubusercontent.com/u/87270448?v=4" width="120" alt="" /> |
-|                         [박재웅](https://github.com/donguramee)                          |                        [조정현](https://github.com/hardy-is-cat)                        |                            [송재웅](https://github.com/AYFG)                            |                       [이재영](https://github.com/jaeyounging)                        |
-
-</div>
-
-## 3. 기술 및 개발 환경
+## 2. 기술 및 개발 환경
 
  <div align="center">
 
@@ -35,11 +20,11 @@
 
 </div>
 
-## 4.기획
+## 3.기획
 
 <img width="1062" alt="PickYourPotion_wireFrame" src="https://github.com/user-attachments/assets/5eea04e0-736b-4ced-9669-09e0780129e5">
  
-## 5. 폴더 구조
+## 4. 폴더 구조
 
 ```
 🍶 PickYourPotion
@@ -220,7 +205,7 @@
 
 ```
 
-## 7. 구현 내용
+## 5. 구현 내용
 
 ### 술BTI
 
