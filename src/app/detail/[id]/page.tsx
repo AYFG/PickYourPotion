@@ -75,11 +75,16 @@ export interface ProductDetail {
   quantity: number;
   createdAt: number;
 }
+
+const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
+
 export async function fetchDetail(_id: string, delay?: number) {
+  if (delay) {
+    await sleep(delay);
+  }
   const API_SERVER = process.env.NEXT_PUBLIC_API_SERVER;
   const CLIENT_ID = process.env.NEXT_PUBLIC_CLIENT_ID;
-  const delayTime = delay ? "/?delay=" + delay : "";
-  const url = `${API_SERVER}/products/${_id}${delayTime}`;
+  const url = `${API_SERVER}/products/${_id}`;
   const res = await fetch(url, {
     headers: {
       "client-id": `${CLIENT_ID}`,
