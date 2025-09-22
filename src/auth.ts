@@ -2,6 +2,7 @@ import NextAuth, { CredentialsSignin } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import github from "next-auth/providers/github";
 import google from "next-auth/providers/google";
+import naver from "next-auth/providers/naver";
 import { login, loginOAuth, signupWithOAuth } from "./model/action/userAction";
 import { OAuthUser, RefreshTokenRes, UserData, UserLoginForm } from "./types";
 import jwt, { JwtPayload } from "jsonwebtoken";
@@ -51,6 +52,10 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
     discord({
       clientId: process.env.DISCORD_CLIENT_ID,
       clientSecret: process.env.DISCORD_CLIENT_SECRET,
+    }),
+    naver({
+      clientId: process.env.NAVER_CLIENT_ID,
+      clientSecret: process.env.NAVER_CLIENT_SECRET,
     }),
   ],
   session: {
@@ -117,7 +122,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
           // console.log("id/pwd 로그인", user);
           break;
         case "google":
-
+        case "naver":
         case "discord":
           /*
             OAuth 로그인 {

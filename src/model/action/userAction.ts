@@ -114,6 +114,9 @@ export async function signInWithGoogle() {
 export async function signInWithDiscord() {
   await signIn("discord", { redirectTo: `/` });
 }
+export async function signInWithNaver() {
+  await signIn("naver", { redirectTo: `/` });
+}
 export async function signInWithCredentials(
   email: string | undefined,
   password: string | undefined,

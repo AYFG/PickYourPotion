@@ -6,7 +6,7 @@ export interface UserData {
   phone?: string;
   address?: string;
   type: "user" | "seller" | "admin";
-  loginType?: "email" | "google" | "github" | "discord";
+  loginType?: "email" | "google" | "github" | "discord" | "naver";
   image?: string;
   token?: {
     accessToken: string;
