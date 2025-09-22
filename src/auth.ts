@@ -222,7 +222,9 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
         } undefined undefined undefined undefined
       */
       // console.log('callbacks.jwt', token, user, account, profile, session);
-
+      if (account) {
+        token.provider = account.provider;
+      }
       // 토큰 만료 체크, 리플래시 토큰으로 재발급
       // 리플레시 토큰도 만료되었으면 로그아웃 처리
       if (user) {
@@ -304,6 +306,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
       // console.log('callbacks.session', session, token);
       session.user.id = token.id as string;
       session.user.type = token.type as string;
+      session.user.provider = token.provider;
       session.accessToken = token.accessToken;
       session.refreshToken = token.refreshToken;
       return session;
