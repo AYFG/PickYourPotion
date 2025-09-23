@@ -9,14 +9,14 @@ import Card from "@/components/Card";
 import { auth } from "@/auth";
 import { getUserInfo, updateAdminIsAdult } from "./adult/action";
 
-// export const metadata: Metadata = {
-//   title: "조지주 메인",
-//   openGraph: {
-//     title: "전통주 쇼핑몰 조지주",
-//     description: "당신이 원하는 술을 가질 수 있는 쇼핑몰, 조지주",
-//     url: "/",
-//   },
-// };
+export const metadata: Metadata = {
+  title: "조지주 메인",
+  openGraph: {
+    title: "전통주 쇼핑몰 조지주",
+    description: "당신이 원하는 술을 가질 수 있는 쇼핑몰, 조지주",
+    url: "/",
+  },
+};
 
 async function fetchProductList(params?: string[][]): Promise<ProductDetail[]> {
   const API_SERVER = process.env.NEXT_PUBLIC_API_SERVER;
