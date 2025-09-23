@@ -9,14 +9,14 @@ import Card from "@/components/Card";
 import { auth } from "@/auth";
 import { getUserInfo, updateAdminIsAdult } from "./adult/action";
 
-export const metadata: Metadata = {
-  title: "조지주 메인",
-  openGraph: {
-    title: "전통주 쇼핑몰 조지주",
-    description: "당신이 원하는 술을 가질 수 있는 쇼핑몰, 조지주",
-    url: "/",
-  },
-};
+// export const metadata: Metadata = {
+//   title: "조지주 메인",
+//   openGraph: {
+//     title: "전통주 쇼핑몰 조지주",
+//     description: "당신이 원하는 술을 가질 수 있는 쇼핑몰, 조지주",
+//     url: "/",
+//   },
+// };
 
 async function fetchProductList(params?: string[][]): Promise<ProductDetail[]> {
   const API_SERVER = process.env.NEXT_PUBLIC_API_SERVER;
@@ -44,32 +44,95 @@ export default async function Home() {
     const adminExtraInfo = adminInfo.item.extra;
     const adminAdultFalse = await updateAdminIsAdult(userId, adminExtraInfo, token);
   }
+  // 초기 로딩 개선 전
 
-  const bestProduct = await fetchProductList([
-    ["sort", '{"buyQuantity": -1}'],
-    ["limit", "4"],
+  // const bestProduct = await fetchProductList([
+  //   ["sort", '{"buyQuantity": -1}'],
+  //   ["limit", "4"],
+  // ]);
+  // const newSortProduct = await fetchProductList([
+  //   ["sort", '{ "createdAt": -1 }'],
+  //   ["limit", "5"],
+  // ]);
+  // // const newProduct = await fetchProductList([["custom", '{ "extra.isNew": true }']]);
+  // const takjuProduct = await fetchProductList([
+  //   ["custom", '{ "extra.category": "PC01" }'],
+  //   ["limit", "3"],
+  // ]);
+  // const yakjuProduct = await fetchProductList([
+  //   ["custom", '{ "extra.category": "PC02" }'],
+  //   ["limit", "3"],
+  // ]);
+  // const spiritProduct = await fetchProductList([
+  //   ["custom", '{ "extra.category": "PC03" }'],
+  //   ["limit", "3"],
+  // ]);
+  // const wineProduct = await fetchProductList([
+  //   ["custom", '{ "extra.category": "PC04" }'],
+  //   ["limit", "3"],
+  // ]);
+
+  // 개선 후
+
+  // const [bestProduct, newSortProduct, takjuProduct, yakjuProduct, spiritProduct, wineProduct] =
+  //   await Promise.all([
+  //     fetchProductList([
+  //       ["sort", '{"buyQuantity": -1}'],
+  //       ["limit", "4"],
+  //     ]),
+  //     fetchProductList([
+  //       ["sort", '{ "createdAt": -1 }'],
+  //       ["limit", "5"],
+  //     ]),
+  //     fetchProductList([
+  //       ["custom", '{ "extra.category": "PC01" }'],
+  //       ["limit", "3"],
+  //     ]),
+  //     fetchProductList([
+  //       ["custom", '{ "extra.category": "PC02" }'],
+  //       ["limit", "3"],
+  //     ]),
+  //     fetchProductList([
+  //       ["custom", '{ "extra.category": "PC03" }'],
+  //       ["limit", "3"],
+  //     ]),
+  //     fetchProductList([
+  //       ["custom", '{ "extra.category": "PC04" }'],
+  //       ["limit", "3"],
+  //     ]),
+  //   ]);
+
+  // 개선 후 요청 실패 방지
+
+  const results = await Promise.allSettled([
+    fetchProductList([
+      ["sort", '{"buyQuantity": -1}'],
+      ["limit", "4"],
+    ]),
+    fetchProductList([
+      ["sort", '{ "createdAt": -1 }'],
+      ["limit", "5"],
+    ]),
+    fetchProductList([
+      ["custom", '{ "extra.category": "PC01" }'],
+      ["limit", "3"],
+    ]),
+    fetchProductList([
+      ["custom", '{ "extra.category": "PC02" }'],
+      ["limit", "3"],
+    ]),
+    fetchProductList([
+      ["custom", '{ "extra.category": "PC03" }'],
+      ["limit", "3"],
+    ]),
+    fetchProductList([
+      ["custom", '{ "extra.category": "PC04" }'],
+      ["limit", "3"],
+    ]),
   ]);
-  const newSortProduct = await fetchProductList([
-    ["sort", '{ "createdAt": -1 }'],
-    ["limit", "5"],
-  ]);
-  // const newProduct = await fetchProductList([["custom", '{ "extra.isNew": true }']]);
-  const takjuProduct = await fetchProductList([
-    ["custom", '{ "extra.category": "PC01" }'],
-    ["limit", "3"],
-  ]);
-  const yakjuProduct = await fetchProductList([
-    ["custom", '{ "extra.category": "PC02" }'],
-    ["limit", "3"],
-  ]);
-  const spiritProduct = await fetchProductList([
-    ["custom", '{ "extra.category": "PC03" }'],
-    ["limit", "3"],
-  ]);
-  const wineProduct = await fetchProductList([
-    ["custom", '{ "extra.category": "PC04" }'],
-    ["limit", "3"],
-  ]);
+
+  const [bestProduct, newSortProduct, takjuProduct, yakjuProduct, spiritProduct, wineProduct] =
+    results.map((result) => (result.status === "fulfilled" ? result.value : []));
 
   return (
     <>
